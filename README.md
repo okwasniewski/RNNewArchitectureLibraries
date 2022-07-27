@@ -18,7 +18,7 @@
 
 ## Steps
 
-### <a name="setup" />[[Setup] Create the calculator folder and the package.json](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="setup" />[[Setup] Create the calculator folder and the package.json](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/9021940f8d65d1ffd93ced7ab211e17781a7e986)
 
 1. `mkdir calculator`
 1. `touch calculator/package.json`
@@ -57,7 +57,7 @@
 }
 ```
 
-### <a name="js-import" />[[Native Module] Create the JS import](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="js-import" />[[Native Module] Create the JS import](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/93779da0638eaa39030bacd3947030e422488c54)
 
 1. `mkdir calculator/src`
 1. `touch calculator/src/index.js`
@@ -69,7 +69,7 @@ import { NativeModules } from 'react-native'
 export default NativeModules.Calculator;
 ```
 
-### <a name="ios-native" />[[Native Module] Create the iOS implementation](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="ios-native" />[[Native Module] Create the iOS implementation](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/a94aa5c45688ed7e42ce596ded8fd94312ea4015)
 
 1. `mkdir calculator/ios`
 1. Create an `ios/RNCalculator.h` file and fill it with the following code:
@@ -124,7 +124,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-### <a name="android-native" />[[Native Module] Create the Android implementation](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="android-native" />[[Native Module] Create the Android implementation](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/717ea500c9db970d8d61bc10ec5c22df3236811e)
 
 1. Create a folder `calculator/android`
 1. Create a file `calculator/android/build.gradle` and add this code:
@@ -231,7 +231,7 @@ end
     }
     ```
 
-### <a name="test-native" />[[Native Module] Test The Native Module](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="test-native" />[[Native Module] Test The Native Module](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/91985c994ea51d389423c1d88494be9c404e89ad)
 
 1. At the same level of calculator run `npx react-native init OldArchitecture --version 0.70.0-rc.0`
 1. `cd OldArchitecture && yarn add ../calculator`
@@ -277,7 +277,7 @@ end
 
 **Note:** OldArchitecture app has not been committed not to pollute the repository.
 
-### <a name="js-spec" />[[TurboModule] Add the JavaScript specs](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="js-spec" />[[TurboModule] Add the JavaScript specs](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/a56c9e4c934e51b23df1fd2f3905b85d69c138da)
 
 1. `touch calculator/src/NativeCalculator.js`
 1. Paste the following code:
@@ -295,7 +295,7 @@ end
     ): ?Spec);
     ```
 
-### <a name="ios-codegen" />[[TurboModule] Set up CodeGen - iOS](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="ios-codegen" />[[TurboModule] Set up CodeGen - iOS](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/851db02adcb92e81177733a0301e0d5de0426e90)
 
 1. Open the `calculator/package.json`
 1. Add the following snippet at the end of it:
@@ -312,7 +312,7 @@ end
     }
     ```
 
-### <a name="android-codegen" />[[TurboModule] Set up CodeGen - Android](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="android-codegen" />[[TurboModule] Set up CodeGen - Android](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/cf26ac933dfa96a1f9ee504a9e079a75ea189dac)
 
 1. Open the `calculator/android/build.gradle` file and update the code as follows:
     ```diff
@@ -339,7 +339,7 @@ end
     +     }
     + }
 
-### <a name="ios-autolinking" />[[TurboModule] Set up `podspec` file](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="ios-autolinking" />[[TurboModule] Set up `podspec` file](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/2d81b8f21f49517046e8a38835effead5b182f52)
 
 1. Open the `calculator/calculator.podspec` file
 1. Before the `Pod::Spec.new do |s|` add the following code:
@@ -364,7 +364,7 @@ end
         s.dependency "ReactCommon/turbomodule/core"
     end
 
-### <a name="ios-tm-code" />[[TurboModule] Update the Native iOS code](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="ios-tm-code" />[[TurboModule] Update the Native iOS code](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/b54877ef276f394d4b71db2248d7e67be01e09db)
 
 1. In the `ios/RNCalculator` folder, rename the `RNCalculator.m` into `RNCalculator.mm`
 1. Open it and add the following `import`:
@@ -386,7 +386,7 @@ end
     #endif
     ```
 
-### <a name="android-backward" />[[TurboModule] Android: Convert ReactPackage to a backward compatible TurboReactPackage](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="android-backward" />[[TurboModule] Android: Convert ReactPackage to a backward compatible TurboReactPackage](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/4cdb470097d543bf0364e96a52754c67b8cdb9e1)
 
 1. Open the `calculator/android/src/main/java/com/rnnewarchitecturelibrary/CalculatorModule.java` and modify it as it follows:
     ```diff
@@ -455,7 +455,7 @@ end
     }
     ```
 
-### <a name="android-sourceset" />[[TurboModule] Android: Update the Native code to use two sourcesets](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="android-sourceset" />[[TurboModule] Android: Update the Native code to use two sourcesets](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/c3e9726791a0e3133159b76f865eb0d59b49d25e)
 
 1. Open the `calculator/android/build.gradle` file and update the code as it follows:
     ```diff
@@ -564,7 +564,7 @@ end
     }
     ```
 
-### <a name="android-refactor" />[[TurboModule] Android: Refactor the code to use a shared implementation](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="android-refactor" />[[TurboModule] Android: Refactor the code to use a shared implementation](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/75993f2edf172641c7e50185b8a6dbd126c81a8e)
 
 1. Create a new `calculator/android/src/main/java/com/rnnewarchitecturelibrary/CalculatorModuleImpl.java` file (notice that the `src`'s subfolder is now `main`) and paste the following code:
     ```java
@@ -667,7 +667,7 @@ end
     }
 1. Remove the `android/src/main/java/com/rnnewarchitecturelibrary/CalculatorModule.java` (the one in the `main` folder).
 
-### <a name="js-unification" />[[TurboModule] Unify JavaScript interface](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+### <a name="js-unification" />[[TurboModule] Unify JavaScript interface](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/4c91ee2337e0385d66299d33d239fe6355cf01fd)
 
 1. Open the `src/index.js` file
 1. Replace the code with the following:
@@ -684,7 +684,7 @@ end
     export default calculator;
     ```
 
-### <a name="tm-test" />[[TurboModule] Test the Turbomodule]()
+### <a name="tm-test" />[[TurboModule] Test the Turbomodule](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/7e3fdd0ab33b1cc729e1ff50fe45c657a0c7469b)
 
 1. At the same level of calculator run `npx react-native init NewArchitecture --version 0.70.0-rc.0`
 1. `cd NewArchitecture && yarn add ../calculator`
