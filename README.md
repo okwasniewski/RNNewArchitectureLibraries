@@ -7,6 +7,7 @@
 * [[Native Module] Test The Native Module](#test-native)
 * [[TurboModule] Add the JavaScript specs](#js-spec)
 * [[TurboModule] Set up CodeGen - iOS](#ios-codegen)
+* [[TurboModule] Set up CodeGen - Android](#android-codegen)
 
 ## Steps
 
@@ -303,3 +304,30 @@ end
         ]
     }
     ```
+
+### <a name="android-codegen" />[[TurboModule] Set up CodeGen - Android](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+
+1. Open the `calculator/android/build.gradle` file and update the code as follows:
+    ```diff
+    + def isNewArchitectureEnabled() {
+    +    return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+    +}
+
+    apply plugin: 'com.android.library'
+    +if (isNewArchitectureEnabled()) {
+    +    apply plugin: 'com.facebook.react'
+    +}
+
+    // ... other parts of the build file
+
+    dependencies {
+        implementation 'com.facebook.react:react-native:+'
+    }
+
+    + if (isNewArchitectureEnabled()) {
+    +     react {
+    +         jsRootDir = file("../src/")
+    +         libraryName = "calculator"
+    +         codegenJavaPackageName = "com.rnnewarchitecturelibrary"
+    +     }
+    + }
