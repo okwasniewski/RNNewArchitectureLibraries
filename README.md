@@ -6,6 +6,7 @@
 * [[Native Module] Create the Android implementation](#android-native)
 * [[Native Module] Test The Native Module](#test-native)
 * [[TurboModule] Add the JavaScript specs](#js-spec)
+* [[TurboModule] Set up CodeGen - iOS](#ios-codegen)
 
 ## Steps
 
@@ -284,4 +285,21 @@ end
     export default (TurboModuleRegistry.get<Spec>(
         'Calculator'
     ): ?Spec);
+    ```
+
+### <a name="ios-codegen" />[[TurboModule] Set up CodeGen - iOS](https://github.com/cipolleschi/RNNewArchitectureLibraries/commit/)
+
+1. Open the `calculator/package.json`
+1. Add the following snippet at the end of it:
+    ```json
+    ,
+    "codegenConfig": {
+        "libraries": [
+            {
+            "name": "RNCalculatorSpec",
+            "type": "modules",
+            "jsSrcsDir": "src"
+            }
+        ]
+    }
     ```
